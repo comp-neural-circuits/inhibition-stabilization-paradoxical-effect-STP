@@ -1,583 +1,67 @@
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[         0,          0]
-NotebookDataLength[     22789,        582]
-NotebookOptionsPosition[     22053,        557]
-NotebookOutlinePosition[     22449,        573]
-CellTagsIndexPosition[     22406,        570]
-WindowFrame->Normal*)
+taue = 0.020;
+taui = 0.010;
+Jee = 0.8;
+Jei = 1.0;
+Jie = 1.0;
+Jii = 1.0;
+ge = 6;
+gi = 8;
+n = 1;
 
-(* Beginning of Notebook Content *)
-Notebook[{
+Ge[x_, y_] := (-x + (Jee*x - Jei*y + ge)^n*
+     HeavisideTheta[Jee*x - Jei*y + ge])*(taue)^(-1); 
+Gi[x_, y_] := (-y + (Jie*x - Jii*y + gi)^n*
+     HeavisideTheta[Jie*x - Jii*y + gi])*(taui)^(-1);
 
-Cell[CellGroupData[{
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"taue", " ", "=", " ", "0.020"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"taui", " ", "=", " ", "0.010"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Jee", " ", "=", " ", "0.8"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Jei", " ", "=", " ", "1.0"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Jie", " ", "=", " ", "1.0"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Jii", " ", "=", " ", "1.0"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"ge", " ", "=", "6"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"gi", " ", "=", " ", "8"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"n", " ", "=", " ", "1"}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Ge", "[", 
-     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", 
-    RowBox[{
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"-", "x"}], "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"Jee", "*", "x"}], "-", 
-           RowBox[{"Jei", "*", "y"}], "+", "ge"}], ")"}], "^", "n"}], "*", 
-        RowBox[{"HeavisideTheta", "[", 
-         RowBox[{
-          RowBox[{"Jee", "*", "x"}], "-", 
-          RowBox[{"Jei", "*", "y"}], "+", "ge"}], "]"}]}]}], ")"}], "*", 
-     RowBox[{
-      RowBox[{"(", "taue", ")"}], "^", 
-      RowBox[{"(", 
-       RowBox[{"-", "1"}], ")"}]}]}]}], ";", 
-   RowBox[{
-    RowBox[{"Gi", "[", 
-     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", 
-    RowBox[{
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"-", "y"}], "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"Jie", "*", "x"}], "-", 
-           RowBox[{"Jii", "*", "y"}], "+", "gi"}], ")"}], "^", "n"}], "*", 
-        RowBox[{"HeavisideTheta", "[", 
-         RowBox[{
-          RowBox[{"Jie", "*", "x"}], "-", 
-          RowBox[{"Jii", "*", "y"}], "+", "gi"}], "]"}]}]}], ")"}], "*", 
-     RowBox[{
-      RowBox[{"(", "taui", ")"}], "^", 
-      RowBox[{"(", 
-       RowBox[{"-", "1"}], ")"}]}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"s", " ", "=", " ", 
-   RowBox[{"Solve", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"0", "==", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"-", "e"}], "+", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"Jee", "*", "e"}], "-", 
-              RowBox[{"Jei", "*", "i"}], "+", "ge"}], ")"}], "^", "n"}], "*", 
-           
-           RowBox[{"UnitStep", "[", 
-            RowBox[{
-             RowBox[{"Jee", "*", "e"}], "-", 
-             RowBox[{"Jei", "*", "i"}], "+", "ge"}], "]"}]}]}], ")"}], "*", 
-        RowBox[{
-         RowBox[{"(", "taue", ")"}], "^", 
-         RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}]}]}]}], "&&", "\[IndentingNewLine]", 
-      RowBox[{"0", "==", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"-", "i"}], "+", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"Jie", "*", "e"}], "-", 
-              RowBox[{"Jii", "*", "i"}], "+", "gi"}], ")"}], "^", "n"}], "*", 
-           
-           RowBox[{"UnitStep", "[", 
-            RowBox[{
-             RowBox[{"Jie", "*", "e"}], "-", 
-             RowBox[{"Jii", "*", "i"}], "+", "gi"}], "]"}]}]}], ")"}], "*", 
-        RowBox[{
-         RowBox[{"(", "taui", ")"}], "^", 
-         RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}]}]}]}]}], ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"e", ",", "i"}], "}"}], ",", " ", "Reals"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"re", "=", " ", 
-   RowBox[{"e", "/.", 
-    RowBox[{"s", "[", 
-     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"ri", "=", " ", 
-    RowBox[{"i", "/.", 
-     RowBox[{"s", "[", 
-      RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Ge1", "[", 
-     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", 
-    RowBox[{
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"-", "x"}], "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"Jee", "*", "x"}], "-", 
-           RowBox[{"Jei", "*", "y"}], "+", "ge"}], ")"}], "^", "n"}], "*", 
-        RowBox[{"HeavisideTheta", "[", 
-         RowBox[{
-          RowBox[{"Jee", "*", "x"}], "-", 
-          RowBox[{"Jei", "*", "y"}], "+", "ge"}], "]"}]}]}], ")"}], "*", 
-     RowBox[{
-      RowBox[{"(", "taue", ")"}], "^", 
-      RowBox[{"(", 
-       RowBox[{"-", "1"}], ")"}]}]}]}], ";", 
-   RowBox[{
-    RowBox[{"Gi1", "[", 
-     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", 
-    RowBox[{
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"-", "y"}], "+", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"Jie", "*", "x"}], "-", 
-           RowBox[{"Jii", "*", "y"}], "+", "gi", " ", "+", " ", "1"}], ")"}], 
-         "^", "n"}], "*", 
-        RowBox[{"HeavisideTheta", "[", 
-         RowBox[{
-          RowBox[{"Jie", "*", "x"}], "-", 
-          RowBox[{"Jii", "*", "y"}], "+", "gi", " ", "+", " ", "1"}], 
-         "]"}]}]}], ")"}], "*", 
-     RowBox[{
-      RowBox[{"(", "taui", ")"}], "^", 
-      RowBox[{"(", 
-       RowBox[{"-", "1"}], ")"}]}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"cp", "=", 
-   RowBox[{"ContourPlot", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Ge", "[", 
-         RowBox[{"x", ",", "y"}], "]"}], "\[Equal]", "0"}], ",", 
-       RowBox[{
-        RowBox[{"Gi", "[", 
-         RowBox[{"x", ",", "y"}], "]"}], "\[Equal]", "0"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "10"}], "}"}], ",", " ", 
-     RowBox[{"ContourStyle", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"Directive", "[", 
-         RowBox[{"Thick", ",", " ", "Blue"}], "]"}], ",", " ", 
-        RowBox[{"Directive", "[", 
-         RowBox[{"Thick", ",", " ", "Red"}], "]"}]}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"splot", "=", 
-   RowBox[{"StreamPlot", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"Ge", "[", 
-        RowBox[{"x", ",", "y"}], "]"}], ",", 
-       RowBox[{"Gi", "[", 
-        RowBox[{"x", ",", "y"}], "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"StreamColorFunction", "\[Rule]", "None"}], ",", " ", 
-     RowBox[{"StreamStyle", "\[Rule]", "Black"}], ",", 
-     RowBox[{"StreamScale", "\[Rule]", "0.2"}], ",", 
-     RowBox[{"StreamPoints", "\[Rule]", "25"}], ",", 
-     RowBox[{"Epilog", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"PointSize", "[", "0.04", "]"}], ",", 
-        RowBox[{"Point", "[", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"{", 
-            RowBox[{"re", ",", " ", "ri"}], "}"}], "}"}], ",", 
-          RowBox[{"VertexColors", "\[Rule]", 
-           RowBox[{"{", "Black", "}"}]}]}], "]"}]}], "}"}]}], ",", 
-     RowBox[{"GridLines", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "Gray"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"10", ",", "Gray"}], "}"}]}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"10", ",", "Gray"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"0", ",", "Gray"}], "}"}]}], "}"}]}], "}"}]}], ",", 
-     RowBox[{"FrameTicks", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "5", ",", " ", "10"}], "}"}], ",", " ", "None"}],
-          "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", " ", "5", ",", " ", "10"}], "}"}], ",", " ", 
-          "None"}], "}"}]}], "}"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"ISN", " ", "=", " ", 
-   RowBox[{"Show", "[", 
-    RowBox[{"splot", ",", " ", "cp"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+s = Solve[
+   0 == (-e + (Jee*e - Jei*i + ge)^n*
+         UnitStep[Jee*e - Jei*i + ge])*(taue)^(-1) &&
+    
+    0 == (-i + (Jie*e - Jii*i + gi)^n*
+         UnitStep[Jie*e - Jii*i + gi])*(taui)^(-1), {e, i}, Reals];
+re = e /. s[[1]];
+ri = i /. s[[1]];
 
- RowBox[{
-  RowBox[{
-   RowBox[{"Export", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
-      "\"\<Fig_S4_Linear_network_nonIS.pdf\>\""}], ",", "ISN", ",", 
-     RowBox[{"\"\<AllowRasterization\>\"", "\[Rule]", "False"}]}], "]"}], 
-   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"s1", " ", "=", " ", 
-   RowBox[{"Solve", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"0", "==", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"-", "e"}], "+", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"Jee", "*", "e"}], "-", 
-              RowBox[{"Jei", "*", "i"}], "+", "ge"}], ")"}], "^", "n"}], "*", 
-           
-           RowBox[{"UnitStep", "[", 
-            RowBox[{
-             RowBox[{"Jee", "*", "e"}], "-", 
-             RowBox[{"Jei", "*", "i"}], "+", "ge"}], "]"}]}]}], ")"}], "*", 
-        RowBox[{
-         RowBox[{"(", "taue", ")"}], "^", 
-         RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}]}]}]}], "&&", "\[IndentingNewLine]", 
-      RowBox[{"0", "==", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"-", "i"}], "+", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"Jie", "*", "e"}], "-", 
-              RowBox[{"Jii", "*", "i"}], "+", "gi", "+", "1"}], ")"}], "^", 
-            "n"}], "*", 
-           RowBox[{"UnitStep", "[", 
-            RowBox[{
-             RowBox[{"Jie", "*", "e"}], "-", 
-             RowBox[{"Jii", "*", "i"}], "+", "gi", "+", "1"}], "]"}]}]}], 
-         ")"}], "*", 
-        RowBox[{
-         RowBox[{"(", "taui", ")"}], "^", 
-         RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}]}]}]}]}], ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"e", ",", "i"}], "}"}], ",", " ", "Reals"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"re1", "=", " ", 
-   RowBox[{"e", "/.", 
-    RowBox[{"s1", "[", 
-     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"ri1", "=", " ", 
-   RowBox[{"i", "/.", 
-    RowBox[{"s1", "[", 
-     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"cp1", "=", 
-   RowBox[{"ContourPlot", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Ge1", "[", 
-         RowBox[{"x", ",", "y"}], "]"}], "\[Equal]", "0"}], ",", 
-       RowBox[{
-        RowBox[{"Gi1", "[", 
-         RowBox[{"x", ",", "y"}], "]"}], "\[Equal]", "0"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "10"}], "}"}], ",", " ", 
-     RowBox[{"ContourStyle", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"Directive", "[", 
-         RowBox[{"Thick", ",", " ", "Blue"}], "]"}], ",", " ", 
-        RowBox[{"Directive", "[", 
-         RowBox[{"Thick", ",", " ", "Red", ",", " ", "Dashed"}], "]"}]}], 
-       "}"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"splot1", "=", 
-   RowBox[{"StreamPlot", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"Ge", "[", 
-        RowBox[{"x", ",", "y"}], "]"}], ",", 
-       RowBox[{"Gi", "[", 
-        RowBox[{"x", ",", "y"}], "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "0", ",", "10"}], "}"}], ",", 
-     RowBox[{"StreamColorFunction", "\[Rule]", "None"}], ",", " ", 
-     RowBox[{"StreamStyle", "\[Rule]", "Black"}], ",", 
-     RowBox[{"StreamScale", "\[Rule]", "0.2"}], ",", 
-     RowBox[{"StreamPoints", "\[Rule]", "25"}], ",", 
-     RowBox[{"Epilog", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"PointSize", "[", "0.04", "]"}], ",", 
-        RowBox[{"Point", "[", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"re", ",", " ", "ri"}], "}"}], ",", " ", 
-            RowBox[{"{", 
-             RowBox[{"re1", ",", " ", "ri1"}], "}"}]}], "}"}], ",", 
-          RowBox[{"VertexColors", "\[Rule]", 
-           RowBox[{"{", "Black", "}"}]}]}], "]"}]}], "}"}]}], ",", 
-     RowBox[{"GridLines", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "Gray"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"10", ",", "Gray"}], "}"}]}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"10", ",", "Gray"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"0", ",", "Gray"}], "}"}]}], "}"}]}], "}"}]}], ",", 
-     RowBox[{"FrameTicks", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "5", ",", " ", "10"}], "}"}], ",", " ", "None"}],
-          "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", " ", "5", ",", " ", "10"}], "}"}], ",", " ", 
-          "None"}], "}"}]}], "}"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"ISN1", " ", "=", " ", 
-   RowBox[{"Show", "[", 
-    RowBox[{"splot1", ",", " ", "cp", ",", " ", "cp1"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
-     "\"\<Fig_S4_Linear_network_nonIS_perturbation.pdf\>\""}], ",", "ISN1", 
-    ",", 
-    RowBox[{"\"\<AllowRasterization\>\"", "\[Rule]", "False"}]}], "]"}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.808459487708659*^9, 3.808459489074638*^9}, {
-   3.8084595621269627`*^9, 3.8084595627395763`*^9}, {3.808459764634632*^9, 
-   3.808459784882524*^9}, {3.808459848656786*^9, 3.808459852376342*^9}, {
-   3.80845990466772*^9, 3.808459908418005*^9}, {3.808459962458784*^9, 
-   3.8084599884078197`*^9}, {3.808460032911475*^9, 3.80846015152157*^9}, {
-   3.8084602243249617`*^9, 3.808460288163076*^9}, {3.808460319357439*^9, 
-   3.808460323797687*^9}, {3.8084603578597193`*^9, 3.8084605054547377`*^9}, {
-   3.808460555950675*^9, 3.808460605305953*^9}, {3.8084607052453012`*^9, 
-   3.808460810053793*^9}, 3.8084610067528687`*^9, {3.808461043283327*^9, 
-   3.8084610566669703`*^9}, {3.8084613246109447`*^9, 3.808461415195477*^9}, {
-   3.808461473326428*^9, 3.808461536437153*^9}, {3.808461624965602*^9, 
-   3.8084616692177973`*^9}, {3.808461717174387*^9, 3.808461730062488*^9}, {
-   3.808461813388968*^9, 3.80846181563612*^9}, {3.808462043366041*^9, 
-   3.808462076082127*^9}, {3.808462107151297*^9, 3.8084621224757833`*^9}, {
-   3.808468585130821*^9, 3.808468617956203*^9}, {3.808482214743598*^9, 
-   3.808482237351568*^9}, {3.814365123932415*^9, 3.814365127711632*^9}, {
-   3.824042369828223*^9, 3.824042370080902*^9}, {3.824042491681403*^9, 
-   3.824042493977796*^9}, {3.824204317455572*^9, 3.824204318827108*^9}, {
-   3.82420477677077*^9, 3.824204778027629*^9}, {3.8253996443172417`*^9, 
-   3.825399647052496*^9}, {3.830418594908977*^9, 3.8304185974368134`*^9}, {
-   3.8304186685405207`*^9, 3.830418714711302*^9}, {3.8304188352731543`*^9, 
-   3.830418836981081*^9}, {3.830423374767343*^9, 3.830423376185204*^9}, {
-   3.849152015868155*^9, 3.8491520733584414`*^9}, {3.8491521249892178`*^9, 
-   3.849152212373665*^9}, {3.8491655797758913`*^9, 3.849165805252172*^9}, 
-   3.849165859507073*^9, 3.849167052200974*^9, {3.849167106220187*^9, 
-   3.849167139090376*^9}, {3.849167309237267*^9, 3.849167341749774*^9}, {
-   3.849167737027193*^9, 3.8491677396880093`*^9}, {3.8491690728639803`*^9, 
-   3.849169097337564*^9}, {3.849169128511525*^9, 3.8491691512207937`*^9}, {
-   3.84916976968956*^9, 3.849169770055594*^9}, {3.8491702329208107`*^9, 
-   3.849170351389018*^9}, {3.849170404915967*^9, 3.849170411780504*^9}, {
-   3.8491704454481497`*^9, 3.8491704566417227`*^9}, {3.8491705213792343`*^9, 
-   3.849170715439898*^9}, {3.849170753826735*^9, 3.849170774176227*^9}, {
-   3.849170835541547*^9, 3.849170866113549*^9}, {3.8491712226517878`*^9, 
-   3.8491712929015503`*^9}, {3.849171328850739*^9, 3.8491713609776506`*^9}, {
-   3.849171468533403*^9, 3.849171479971795*^9}, {3.8491715212513313`*^9, 
-   3.849171539897863*^9}, {3.8491715763625383`*^9, 3.849171604584353*^9}, {
-   3.849171644625008*^9, 3.84917166048026*^9}, {3.849171704395041*^9, 
-   3.8491717146967173`*^9}, {3.849171781023685*^9, 3.849171805501679*^9}, {
-   3.84917188766565*^9, 3.849172003629524*^9}, {3.8491720959943943`*^9, 
-   3.8491721192889423`*^9}, {3.849172202259783*^9, 3.8491722325333643`*^9}, {
-   3.849172292248348*^9, 3.849172368537196*^9}, 3.849172474129771*^9, {
-   3.84917257991121*^9, 3.849172581589304*^9}, {3.84917268469716*^9, 
-   3.849172728660727*^9}, {3.849172771876232*^9, 3.849172829982472*^9}, {
-   3.849172877733902*^9, 3.849172918424526*^9}, {3.849172977332255*^9, 
-   3.849172985094047*^9}, {3.8491732269570217`*^9, 3.8491733261574297`*^9}, {
-   3.8491734372967176`*^9, 3.849173452839829*^9}, {3.849173492266135*^9, 
-   3.849173492573119*^9}, {3.84917363016031*^9, 3.849173643147798*^9}, {
-   3.84917373407413*^9, 3.8491737343898983`*^9}, {3.849173783588986*^9, 
-   3.849173878677066*^9}, {3.849173913590089*^9, 3.849173951955982*^9}, {
-   3.849174010141041*^9, 3.84917404902251*^9}, {3.849174093315139*^9, 
-   3.849174106279401*^9}, {3.849174136576293*^9, 3.849174153823835*^9}, {
-   3.8491742067108183`*^9, 3.849174284030455*^9}, {3.8491744188606157`*^9, 
-   3.849174419301227*^9}, {3.849174456323862*^9, 3.849174572851117*^9}, {
-   3.849174789282981*^9, 3.849174932635149*^9}, {3.849174967504705*^9, 
-   3.849175289847621*^9}, {3.84917532482209*^9, 3.849175497358912*^9}, {
-   3.8491755273749447`*^9, 3.8491755579954033`*^9}, {3.849175590062381*^9, 
-   3.84917559938899*^9}, {3.8491778683545322`*^9, 3.849177944132986*^9}, {
-   3.849177976703014*^9, 3.849178456911192*^9}, {3.849178492598228*^9, 
-   3.849178492980443*^9}, {3.8491805292721767`*^9, 3.849180530141395*^9}, {
-   3.8501941169474573`*^9, 3.8501941220589867`*^9}, {3.850194156213441*^9, 
-   3.850194311323976*^9}, {3.850194369102955*^9, 3.850194382360135*^9}, {
-   3.8502016887731867`*^9, 3.850201700832803*^9}, {3.850201731671302*^9, 
-   3.850201735852069*^9}, {3.850201768292326*^9, 3.850201902565269*^9}, {
-   3.851067010667735*^9, 3.851067186552746*^9}, {3.851067282862962*^9, 
-   3.851067351971787*^9}, {3.851067482683546*^9, 3.85106755136403*^9}, {
-   3.8510675970115747`*^9, 3.851067602062579*^9}, {3.8510677103328543`*^9, 
-   3.851067716035204*^9}, {3.8510681639134493`*^9, 3.8510681675417223`*^9}, {
-   3.851068203222919*^9, 3.851068259712317*^9}, {3.851068367877561*^9, 
-   3.8510684028392897`*^9}, {3.851068437618001*^9, 3.8510684671376963`*^9}, {
-   3.85106852345378*^9, 3.851068717793147*^9}, 3.851068765305408*^9, {
-   3.8797507763280077`*^9, 3.87975077786989*^9}, {3.8797509024644413`*^9, 
-   3.879751030397311*^9}, {3.879751070952694*^9, 3.879751088066606*^9}, {
-   3.879751130490754*^9, 3.87975118141602*^9}, {3.8797512653179817`*^9, 
-   3.879751276163023*^9}, {3.87975137803104*^9, 3.879751545044619*^9}, {
-   3.879751851865284*^9, 3.879751888267263*^9}},
- CellLabel->
-  "In[841]:=",ExpressionUUID->"f42944cd-faea-4f83-88d0-1fe6839056f7"],
+Ge1[x_, y_] := (-x + (Jee*x - Jei*y + ge)^n*
+     HeavisideTheta[Jee*x - Jei*y + ge])*(taue)^(-1); 
+Gi1[x_, y_] := (-y + (Jie*x - Jii*y + gi + 1)^n*
+     HeavisideTheta[Jie*x - Jii*y + gi + 1])*(taui)^(-1);
 
-Cell[BoxData[
- TemplateBox[{
-  "Solve", "ratnz", 
-   "\"Solve was unable to solve the system with inexact coefficients. The \
-answer was obtained by solving a corresponding exact system and numericizing \
-the result.\"", 2, 851, 58, 18946686932713489718, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.8510682623466797`*^9, 3.851068405246851*^9, {3.851068440692382*^9, 
-   3.8510684698746347`*^9}, {3.8510686958182783`*^9, 3.851068720777987*^9}, 
-   3.879750849671935*^9, {3.87975090581444*^9, 3.8797509480649443`*^9}, {
-   3.879751009353574*^9, 3.879751076893425*^9}, 3.879751118646928*^9, 
-   3.879751153461768*^9, 3.879751188814871*^9, 3.879751352004759*^9, {
-   3.879751385003129*^9, 3.879751547305111*^9}, {3.879751855313241*^9, 
-   3.879751890349003*^9}},
- CellLabel->
-  "During evaluation of \
-In[841]:=",ExpressionUUID->"4e968655-6eef-4b8c-8e46-d749d8109bb6"],
+cp = ContourPlot[{Ge[x, y] == 0, Gi[x, y] == 0}, {x, 0, 10}, {y, 0, 
+    10}, 
+   ContourStyle -> {Directive[Thick, Blue], Directive[Thick, Red]}];
+splot = StreamPlot[{Ge[x, y], Gi[x, y]}, {x, 0, 10}, {y, 0, 10}, 
+   StreamColorFunction -> None, StreamStyle -> Black, 
+   StreamScale -> 0.2, StreamPoints -> 25, 
+   Epilog -> {PointSize[0.04], 
+     Point[{{re, ri}}, VertexColors -> {Black}]}, 
+   GridLines -> {{{0, Gray}, {10, Gray}}, {{10, Gray}, {0, Gray}}}, 
+   FrameTicks -> {{{0, 5, 10}, None}, {{0, 5, 10}, None}}];
+ISN = Show[splot, cp];
+Export[NotebookDirectory[] <> "Fig_S4_Linear_network_nonIS.pdf", ISN, 
+  "AllowRasterization" -> False];
 
-Cell[BoxData[
- TemplateBox[{
-  "Solve", "ratnz", 
-   "\"Solve was unable to solve the system with inexact coefficients. The \
-answer was obtained by solving a corresponding exact system and numericizing \
-the result.\"", 2, 859, 59, 18946686932713489718, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.8510682623466797`*^9, 3.851068405246851*^9, {3.851068440692382*^9, 
-   3.8510684698746347`*^9}, {3.8510686958182783`*^9, 3.851068720777987*^9}, 
-   3.879750849671935*^9, {3.87975090581444*^9, 3.8797509480649443`*^9}, {
-   3.879751009353574*^9, 3.879751076893425*^9}, 3.879751118646928*^9, 
-   3.879751153461768*^9, 3.879751188814871*^9, 3.879751352004759*^9, {
-   3.879751385003129*^9, 3.879751547305111*^9}, {3.879751855313241*^9, 
-   3.8797518908595123`*^9}},
- CellLabel->
-  "During evaluation of \
-In[841]:=",ExpressionUUID->"96d5b2e4-031b-43f1-9b50-620e9fbbafdc"]
-}, Open  ]]
-},
-WindowSize->{996, 753},
-WindowMargins->{{Automatic, -87}, {5, Automatic}},
-FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (December 2, 2021)",
-StyleDefinitions->"Default.nb",
-ExpressionUUID->"9b8cb8a8-7d93-4306-9e1c-45c92c14a98b"
-]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[CellGroupData[{
-Cell[422, 15, 19817, 501, 976, "Input",ExpressionUUID->"f42944cd-faea-4f83-88d0-1fe6839056f7"],
-Cell[20242, 518, 895, 17, 28, "Message",ExpressionUUID->"4e968655-6eef-4b8c-8e46-d749d8109bb6"],
-Cell[21140, 537, 897, 17, 28, "Message",ExpressionUUID->"96d5b2e4-031b-43f1-9b50-620e9fbbafdc"]
-}, Open  ]]
-}
-]
-*)
-
+s1 = Solve[
+   0 == (-e + (Jee*e - Jei*i + ge)^n*
+         UnitStep[Jee*e - Jei*i + ge])*(taue)^(-1) &&
+    
+    0 == (-i + (Jie*e - Jii*i + gi + 1)^n*
+         UnitStep[Jie*e - Jii*i + gi + 1])*(taui)^(-1), {e, i}, Reals];
+re1 = e /. s1[[1]];
+ri1 = i /. s1[[1]];
+cp1 = ContourPlot[{Ge1[x, y] == 0, Gi1[x, y] == 0}, {x, 0, 10}, {y, 0,
+     10}, 
+   ContourStyle -> {Directive[Thick, Blue], 
+     Directive[Thick, Red, Dashed]}];
+splot1 = 
+  StreamPlot[{Ge[x, y], Gi[x, y]}, {x, 0, 10}, {y, 0, 10}, 
+   StreamColorFunction -> None, StreamStyle -> Black, 
+   StreamScale -> 0.2, StreamPoints -> 25, 
+   Epilog -> {PointSize[0.04], 
+     Point[{{re, ri}, {re1, ri1}}, VertexColors -> {Black}]}, 
+   GridLines -> {{{0, Gray}, {10, Gray}}, {{10, Gray}, {0, Gray}}}, 
+   FrameTicks -> {{{0, 5, 10}, None}, {{0, 5, 10}, None}}];
+ISN1 = Show[splot1, cp, cp1];
+Export[NotebookDirectory[] <> 
+   "Fig_S4_Linear_network_nonIS_perturbation.pdf", ISN1, 
+  "AllowRasterization" -> False];

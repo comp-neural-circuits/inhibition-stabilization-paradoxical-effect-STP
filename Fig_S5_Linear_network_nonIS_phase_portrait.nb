@@ -1,0 +1,67 @@
+taue = 0.020;
+taui = 0.010;
+Jee = 0.8;
+Jei = 1.0;
+Jie = 1.0;
+Jii = 1.0;
+ge = 6;
+gi = 8;
+n = 1;
+
+Ge[x_, y_] := (-x + (Jee*x - Jei*y + ge)^n*
+     HeavisideTheta[Jee*x - Jei*y + ge])*(taue)^(-1); 
+Gi[x_, y_] := (-y + (Jie*x - Jii*y + gi)^n*
+     HeavisideTheta[Jie*x - Jii*y + gi])*(taui)^(-1);
+
+s = Solve[
+   0 == (-e + (Jee*e - Jei*i + ge)^n*
+         UnitStep[Jee*e - Jei*i + ge])*(taue)^(-1) &&
+    
+    0 == (-i + (Jie*e - Jii*i + gi)^n*
+         UnitStep[Jie*e - Jii*i + gi])*(taui)^(-1), {e, i}, Reals];
+re = e /. s[[1]];
+ri = i /. s[[1]];
+
+Ge1[x_, y_] := (-x + (Jee*x - Jei*y + ge)^n*
+     HeavisideTheta[Jee*x - Jei*y + ge])*(taue)^(-1); 
+Gi1[x_, y_] := (-y + (Jie*x - Jii*y + gi + 1)^n*
+     HeavisideTheta[Jie*x - Jii*y + gi + 1])*(taui)^(-1);
+
+cp = ContourPlot[{Ge[x, y] == 0, Gi[x, y] == 0}, {x, 0, 10}, {y, 0, 
+    10}, 
+   ContourStyle -> {Directive[Thick, Blue], Directive[Thick, Red]}];
+splot = StreamPlot[{Ge[x, y], Gi[x, y]}, {x, 0, 10}, {y, 0, 10}, 
+   StreamColorFunction -> None, StreamStyle -> Black, 
+   StreamScale -> 0.2, StreamPoints -> 25, 
+   Epilog -> {PointSize[0.04], 
+     Point[{{re, ri}}, VertexColors -> {Black}]}, 
+   GridLines -> {{{0, Gray}, {10, Gray}}, {{10, Gray}, {0, Gray}}}, 
+   FrameTicks -> {{{0, 5, 10}, None}, {{0, 5, 10}, None}}];
+ISN = Show[splot, cp];
+Export[NotebookDirectory[] <> "Fig_S4_Linear_network_nonIS.pdf", ISN, 
+  "AllowRasterization" -> False];
+
+s1 = Solve[
+   0 == (-e + (Jee*e - Jei*i + ge)^n*
+         UnitStep[Jee*e - Jei*i + ge])*(taue)^(-1) &&
+    
+    0 == (-i + (Jie*e - Jii*i + gi + 1)^n*
+         UnitStep[Jie*e - Jii*i + gi + 1])*(taui)^(-1), {e, i}, Reals];
+re1 = e /. s1[[1]];
+ri1 = i /. s1[[1]];
+cp1 = ContourPlot[{Ge1[x, y] == 0, Gi1[x, y] == 0}, {x, 0, 10}, {y, 0,
+     10}, 
+   ContourStyle -> {Directive[Thick, Blue], 
+     Directive[Thick, Red, Dashed]}];
+splot1 = 
+  StreamPlot[{Ge[x, y], Gi[x, y]}, {x, 0, 10}, {y, 0, 10}, 
+   StreamColorFunction -> None, StreamStyle -> Black, 
+   StreamScale -> 0.2, StreamPoints -> 25, 
+   Epilog -> {PointSize[0.04], 
+     Point[{{re, ri}, {re1, ri1}}, VertexColors -> {Black}]}, 
+   GridLines -> {{{0, Gray}, {10, Gray}}, {{10, Gray}, {0, Gray}}}, 
+   FrameTicks -> {{{0, 5, 10}, None}, {{0, 5, 10}, None}}];
+ISN1 = Show[splot1, cp, cp1];
+Export[NotebookDirectory[] <> 
+   "Fig_S4_Linear_network_nonIS_perturbation.pdf", ISN1, 
+  "AllowRasterization" -> False];
